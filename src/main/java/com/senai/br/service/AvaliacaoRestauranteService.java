@@ -14,25 +14,26 @@ public class AvaliacaoRestauranteService {
 
 	@Autowired
 	private AvaliacaoRestauranteRepository avaliacaoRestauranteRepository;
-	
-	public AvaliacaoRestaurante salvarAvaliacaoRestaurante (AvaliacaoRestauranteDto avaliacaoRestauranteDto) {
-		
+
+	public AvaliacaoRestaurante salvarAvaliacaoRestaurante(AvaliacaoRestauranteDto avaliacaoRestauranteDto) {
+
 		AvaliacaoRestaurante avaliacaoRestaurante = new AvaliacaoRestaurante(avaliacaoRestauranteDto);
-		
+
 		return avaliacaoRestauranteRepository.save(avaliacaoRestaurante);
-		
+
 	}
-	
-	public List<AvaliacaoRestaurante> listarTodos() {
-		
-		return avaliacaoRestauranteRepository.findAll();
-		
+
+	public List<AvaliacaoRestaurante> listarPorCliente(Integer id) {
+
+		return avaliacaoRestauranteRepository.findById_cliente(id);
+
 	}
+
 	
 	public void excluirAvaliacaoRestaurante(Integer id) {
-		
+
 		avaliacaoRestauranteRepository.deleteById(id);
-		
+
 	}
-	
+
 }

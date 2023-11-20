@@ -16,7 +16,7 @@ public class AvaliacaoEntregador {
 	private Integer nota;
 	private Integer id_entregador;
 	private Integer id_cliente;
-	private String desc;
+	private String descricao;
 	
 	public Integer getId() {
 		return id;
@@ -30,23 +30,23 @@ public class AvaliacaoEntregador {
 	public void setNota(Integer nota) {
 		this.nota = nota;
 	}
-	public Integer getId_Entregador() {
+	public Integer getId_entregador() {
 		return id_entregador;
 	}
-	public void setId_Entregador(Integer id_Entregador) {
+	public void setId_entregador(Integer id_Entregador) {
 		this.id_entregador = id_Entregador;
 	}
-	public Integer getId_Cliente() {
+	public Integer getId_cliente() {
 		return id_cliente;
 	}
-	public void setId_Cliente(Integer id_Cliente) {
+	public void setId_cliente(Integer id_Cliente) {
 		this.id_cliente = id_Cliente;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String desc) {
+		this.descricao = desc;
 	}
 	public AvaliacaoEntregador(Integer id, Integer nota, Integer id_Entregador, Integer id_Cliente, String desc) {
 		super();
@@ -54,7 +54,7 @@ public class AvaliacaoEntregador {
 		this.nota = nota;
 		this.id_entregador = id_Entregador;
 		this.id_cliente = id_Cliente;
-		this.desc = desc;
+		this.descricao = desc;
 	}
 	public AvaliacaoEntregador() {
 		super();
@@ -63,10 +63,10 @@ public class AvaliacaoEntregador {
 	public AvaliacaoEntregador(AvaliacaoEntregadorDto avaliacaoEntregadorDto ) {
 		
 		this.id = avaliacaoEntregadorDto.getId();
-		this.id_cliente = avaliacaoEntregadorDto.getId_Cliente();
-		this.id_entregador = avaliacaoEntregadorDto.getId_Entregador();
+		this.id_cliente = avaliacaoEntregadorDto.getId_cliente();
+		this.id_entregador = avaliacaoEntregadorDto.getId_entregador();
 		this.nota = avaliacaoEntregadorDto.getNota();
-		this.desc = avaliacaoEntregadorDto.getDesc();
+		this.descricao = avaliacaoEntregadorDto.getDescricao();
 		
 	}
 	

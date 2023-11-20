@@ -18,7 +18,6 @@ import com.senai.br.dto.AvaliacaoEntregadorDto;
 import com.senai.br.model.AvaliacaoEntregador;
 import com.senai.br.service.AvaliacaoEntregadorService;
 
-
 @RestController
 @RequestMapping("/avaliacaoEntregador")
 public class AvaliacaoEntregadorController {
@@ -27,28 +26,32 @@ public class AvaliacaoEntregadorController {
 	private AvaliacaoEntregadorService avaliacaoEntregadorService;
 
 	@PostMapping
-	public ResponseEntity<AvaliacaoEntregadorDto> cadastraAvaliacaoEntregador(@RequestBody AvaliacaoEntregadorDto avaliacaoEntregadorDto) {
-		AvaliacaoEntregador avaliacaoEntregador = avaliacaoEntregadorService.salvarAvaliacaoEntregador(avaliacaoEntregadorDto);
+	public ResponseEntity<AvaliacaoEntregadorDto> cadastraAvaliacaoEntregador(
+			@RequestBody AvaliacaoEntregadorDto avaliacaoEntregadorDto) {
+		AvaliacaoEntregador avaliacaoEntregador = avaliacaoEntregadorService
+				.salvarAvaliacaoEntregador(avaliacaoEntregadorDto);
 		return ResponseEntity.ok(new AvaliacaoEntregadorDto(avaliacaoEntregador));
 	}
-	
-	@GetMapping
-	public ResponseEntity<List<AvaliacaoEntregadorDto>> listarAvaliacaoEntregador() {
-		List<AvaliacaoEntregador> clientes = avaliacaoEntregadorService.listarTodos();
+
+	@GetMapping("/{id_cliente}")
+	public ResponseEntity<List<AvaliacaoEntregadorDto>> listarAvaliacaoEntregador(@PathVariable Integer id_cliente) {
+		List<AvaliacaoEntregador> clientes = avaliacaoEntregadorService.listarPorCliente(id_cliente);
 		List<AvaliacaoEntregadorDto> clientesDto = clientes.stream().map(AvaliacaoEntregadorDto::new).toList();
 		return ResponseEntity.ok(clientesDto);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> excluirAvaliacaoEntregador(@PathVariable Integer id) {
 		avaliacaoEntregadorService.excluirAvaliacaoEntregador(id);
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<AvaliacaoEntregadorDto> atualizaAvaliacaoEntregador(@RequestBody AvaliacaoEntregadorDto AvaliacaoEntregadorDto) {
-		AvaliacaoEntregador avaliacaoEntregador = avaliacaoEntregadorService.salvarAvaliacaoEntregador(AvaliacaoEntregadorDto);
+	public ResponseEntity<AvaliacaoEntregadorDto> atualizaAvaliacaoEntregador(
+			@RequestBody AvaliacaoEntregadorDto AvaliacaoEntregadorDto) {
+		AvaliacaoEntregador avaliacaoEntregador = avaliacaoEntregadorService
+				.salvarAvaliacaoEntregador(AvaliacaoEntregadorDto);
 		return ResponseEntity.ok(new AvaliacaoEntregadorDto(avaliacaoEntregador));
 	}
-	
+
 }

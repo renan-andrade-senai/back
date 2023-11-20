@@ -16,7 +16,7 @@ public class AvaliacaoRestaurante {
 	private Integer nota;
 	private Integer id_restaurante;
 	private Integer id_cliente;
-	private String desc;
+	private String descricao;
 	public Integer getId() {
 		return id;
 	}
@@ -41,11 +41,11 @@ public class AvaliacaoRestaurante {
 	public void setId_cliente(Integer id_cliente) {
 		this.id_cliente = id_cliente;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String desc) {
+		this.descricao = desc;
 	}
 	public AvaliacaoRestaurante(Integer id, Integer nota, Integer id_restaurante, Integer id_cliente, String desc) {
 		super();
@@ -53,7 +53,7 @@ public class AvaliacaoRestaurante {
 		this.nota = nota;
 		this.id_restaurante = id_restaurante;
 		this.id_cliente = id_cliente;
-		this.desc = desc;
+		this.descricao = desc;
 	}
 	public AvaliacaoRestaurante() {
 		super();
@@ -65,7 +65,7 @@ public AvaliacaoRestaurante(AvaliacaoRestauranteDto avaliacaoRestauranteDto ) {
 		this.id_cliente = avaliacaoRestauranteDto.getId_cliente();
 		this.id_restaurante = avaliacaoRestauranteDto.getId_restaurante();
 		this.nota = avaliacaoRestauranteDto.getNota();
-		this.desc = avaliacaoRestauranteDto.getDesc();
+		this.descricao = avaliacaoRestauranteDto.getDescricao();
 		
 	}
 	

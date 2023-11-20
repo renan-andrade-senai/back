@@ -8,7 +8,7 @@ public class AvaliacaoEntregadorDto {
 	private Integer nota;
 	private Integer id_entregador;
 	private Integer id_cliente;
-	private String desc;
+	private String descricao;
 	public Integer getId() {
 		return id;
 	}
@@ -27,25 +27,25 @@ public class AvaliacaoEntregadorDto {
 		this.nota = nota;
 		this.id_entregador = id_entregador;
 		this.id_cliente = id_cliente;
-		this.desc = desc;
+		this.descricao = desc;
 	}
-	public Integer getId_Entregador() {
+	public Integer getId_entregador() {
 		return id_entregador;
 	}
-	public void setId_Entregador(Integer id_Entregador) {
+	public void setId_entregador(Integer id_Entregador) {
 		this.id_entregador = id_Entregador;
 	}
-	public Integer getId_Cliente() {
+	public Integer getId_cliente() {
 		return id_cliente;
 	}
-	public void setId_Cliente(Integer id_Cliente) {
+	public void setId_cliente(Integer id_Cliente) {
 		this.id_cliente = id_Cliente;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String desc) {
+		this.descricao = desc;
 	}
 	public AvaliacaoEntregadorDto() {
 		super();
@@ -54,10 +54,10 @@ public class AvaliacaoEntregadorDto {
 public AvaliacaoEntregadorDto(AvaliacaoEntregador avaliacaoEntregador ) {
 		
 		this.id = avaliacaoEntregador.getId();
-		this.id_cliente = avaliacaoEntregador.getId_Cliente();
-		this.id_entregador = avaliacaoEntregador.getId_Entregador();
+		this.id_cliente = avaliacaoEntregador.getId_cliente();
+		this.id_entregador = avaliacaoEntregador.getId_entregador();
 		this.nota = avaliacaoEntregador.getNota();
-		this.desc = avaliacaoEntregador.getDesc();
+		this.descricao = avaliacaoEntregador.getDescricao();
 		
 	}
 	

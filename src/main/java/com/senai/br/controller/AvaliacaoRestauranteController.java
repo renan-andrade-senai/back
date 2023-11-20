@@ -18,7 +18,6 @@ import com.senai.br.dto.AvaliacaoRestauranteDto;
 import com.senai.br.model.AvaliacaoRestaurante;
 import com.senai.br.service.AvaliacaoRestauranteService;
 
-
 @RestController
 @RequestMapping("/avaliacaoRestaurante")
 public class AvaliacaoRestauranteController {
@@ -27,29 +26,36 @@ public class AvaliacaoRestauranteController {
 	private AvaliacaoRestauranteService avaliacaoRestauranteService;
 
 	@PostMapping
-	public ResponseEntity<AvaliacaoRestauranteDto> cadastraAvaliacaoRestaurante(@RequestBody AvaliacaoRestauranteDto avaliacaoRestauranteDto) {
-		AvaliacaoRestaurante avaliacaoRestaurante = avaliacaoRestauranteService.salvarAvaliacaoRestaurante(avaliacaoRestauranteDto);
+	public ResponseEntity<AvaliacaoRestauranteDto> cadastraAvaliacaoRestaurante(
+			@RequestBody AvaliacaoRestauranteDto avaliacaoRestauranteDto) {
+		AvaliacaoRestaurante avaliacaoRestaurante = avaliacaoRestauranteService
+				.salvarAvaliacaoRestaurante(avaliacaoRestauranteDto);
 		return ResponseEntity.ok(new AvaliacaoRestauranteDto(avaliacaoRestaurante));
+
+	}
+
 	
-	}	
+
 	
-	@GetMapping
-	public ResponseEntity<List<AvaliacaoRestauranteDto>> listarAvaliacaoRestaurante() {
-		List<AvaliacaoRestaurante> clientes = avaliacaoRestauranteService.listarTodos();
+	@GetMapping("/{id}")
+	public ResponseEntity<List<AvaliacaoRestauranteDto>> listarAvaliacaoRestaurantePorCliente(@PathVariable Integer id_cliente) {
+		List<AvaliacaoRestaurante> clientes = avaliacaoRestauranteService.listarPorCliente(id_cliente);
 		List<AvaliacaoRestauranteDto> clientesDto = clientes.stream().map(AvaliacaoRestauranteDto::new).toList();
 		return ResponseEntity.ok(clientesDto);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> excluirAvaliacaoRestaurante(@PathVariable Integer id) {
 		avaliacaoRestauranteService.excluirAvaliacaoRestaurante(id);
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<AvaliacaoRestauranteDto> atualizaAvaliacaoRestaurante(@RequestBody AvaliacaoRestauranteDto AvaliacaoRestauranteDto) {
-		AvaliacaoRestaurante avaliacaoRestaurante = avaliacaoRestauranteService.salvarAvaliacaoRestaurante(AvaliacaoRestauranteDto);
+	public ResponseEntity<AvaliacaoRestauranteDto> atualizaAvaliacaoRestaurante(
+			@RequestBody AvaliacaoRestauranteDto AvaliacaoRestauranteDto) {
+		AvaliacaoRestaurante avaliacaoRestaurante = avaliacaoRestauranteService
+				.salvarAvaliacaoRestaurante(AvaliacaoRestauranteDto);
 		return ResponseEntity.ok(new AvaliacaoRestauranteDto(avaliacaoRestaurante));
 	}
-	
+
 }

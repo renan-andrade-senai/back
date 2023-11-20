@@ -22,9 +22,9 @@ public class AvaliacaoEntregadorService {
 		return avaliacaoEntregadorRepository.save(avaliacaoEntregador);
 	}
 	
-		public List<AvaliacaoEntregador> listarTodos() {
+		public List<AvaliacaoEntregador> listarPorCliente(Integer id) {
 			
-			return avaliacaoEntregadorRepository.findAll();
+			return avaliacaoEntregadorRepository.findById_cliente(id);
 			
 		}
 		
