@@ -8,6 +8,6 @@ import com.senai.br.model.AvaliacaoRestaurante;
 
 public interface AvaliacaoRestauranteRepository extends JpaRepository<AvaliacaoRestaurante, Integer> {
 
-	public List<AvaliacaoRestaurante> findById_cliente(Integer id_cliente);
+	public List<AvaliacaoRestaurante> findByIdCliente(Integer id_cliente);
 
 }

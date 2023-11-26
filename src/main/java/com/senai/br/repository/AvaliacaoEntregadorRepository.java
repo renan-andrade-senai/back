@@ -8,6 +8,6 @@ import com.senai.br.model.AvaliacaoEntregador;
 
 public interface AvaliacaoEntregadorRepository extends JpaRepository<AvaliacaoEntregador, Integer> {
 
-	public List<AvaliacaoEntregador> findById_cliente(Integer id_cliente);
+	public List<AvaliacaoEntregador> findByIdCliente(Integer id_cliente);
 
 }

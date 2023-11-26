@@ -38,8 +38,8 @@ public class AvaliacaoRestauranteController {
 
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<List<AvaliacaoRestauranteDto>> listarAvaliacaoRestaurantePorCliente(@PathVariable Integer id_cliente) {
-		List<AvaliacaoRestaurante> clientes = avaliacaoRestauranteService.listarPorCliente(id_cliente);
+	public ResponseEntity<List<AvaliacaoRestauranteDto>> listarAvaliacaoRestaurantePorCliente(@PathVariable Integer id) {
+		List<AvaliacaoRestaurante> clientes = avaliacaoRestauranteService.listarPorCliente(id);
 		List<AvaliacaoRestauranteDto> clientesDto = clientes.stream().map(AvaliacaoRestauranteDto::new).toList();
 		return ResponseEntity.ok(clientesDto);
 	}

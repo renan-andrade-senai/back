@@ -24,7 +24,7 @@ public class AvaliacaoEntregadorService {
 	
 		public List<AvaliacaoEntregador> listarPorCliente(Integer id) {
 			
-			return avaliacaoEntregadorRepository.findById_cliente(id);
+			return avaliacaoEntregadorRepository.findByIdCliente(id);
 			
 		}
 		

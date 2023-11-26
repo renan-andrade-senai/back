@@ -14,60 +14,71 @@ public class AvaliacaoEntregador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Integer nota;
-	private Integer id_entregador;
-	private Integer id_cliente;
+	private Integer idEntregador;
+	private Integer idCliente;
 	private String descricao;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getNota() {
 		return nota;
 	}
+
 	public void setNota(Integer nota) {
 		this.nota = nota;
 	}
-	public Integer getId_entregador() {
-		return id_entregador;
+
+	public Integer getIdEntregador() {
+		return idEntregador;
 	}
-	public void setId_entregador(Integer id_Entregador) {
-		this.id_entregador = id_Entregador;
+
+	public void setIdEntregador(Integer idEntregador) {
+		this.idEntregador = idEntregador;
 	}
-	public Integer getId_cliente() {
-		return id_cliente;
+
+	public Integer getIdCliente() {
+		return idCliente;
 	}
-	public void setId_cliente(Integer id_Cliente) {
-		this.id_cliente = id_Cliente;
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String desc) {
 		this.descricao = desc;
 	}
+
 	public AvaliacaoEntregador(Integer id, Integer nota, Integer id_Entregador, Integer id_Cliente, String desc) {
 		super();
 		this.id = id;
 		this.nota = nota;
-		this.id_entregador = id_Entregador;
-		this.id_cliente = id_Cliente;
+		this.idEntregador = id_Entregador;
+		this.idCliente = id_Cliente;
 		this.descricao = desc;
 	}
+
 	public AvaliacaoEntregador() {
 		super();
 	}
-	
-	public AvaliacaoEntregador(AvaliacaoEntregadorDto avaliacaoEntregadorDto ) {
-		
+
+	public AvaliacaoEntregador(AvaliacaoEntregadorDto avaliacaoEntregadorDto) {
+
 		this.id = avaliacaoEntregadorDto.getId();
-		this.id_cliente = avaliacaoEntregadorDto.getId_cliente();
-		this.id_entregador = avaliacaoEntregadorDto.getId_entregador();
+		this.idCliente = avaliacaoEntregadorDto.getIdCliente();
+		this.idEntregador = avaliacaoEntregadorDto.getIdEntregador();
 		this.nota = avaliacaoEntregadorDto.getNota();
 		this.descricao = avaliacaoEntregadorDto.getDescricao();
-		
+
 	}
-	
+
 }
