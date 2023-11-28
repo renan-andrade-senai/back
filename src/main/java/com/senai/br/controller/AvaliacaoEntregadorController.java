@@ -1,6 +1,7 @@
 package com.senai.br.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,12 @@ public class AvaliacaoEntregadorController {
 		List<AvaliacaoEntregador> clientes = avaliacaoEntregadorService.listarPorCliente(id_cliente);
 		List<AvaliacaoEntregadorDto> clientesDto = clientes.stream().map(AvaliacaoEntregadorDto::new).toList();
 		return ResponseEntity.ok(clientesDto);
+	}
+	
+	@GetMapping("/porid/{id}")
+	public ResponseEntity<AvaliacaoEntregadorDto> listarAvaliacaoPorId(@PathVariable Integer id) {
+		Optional<AvaliacaoEntregador> avaliacao = avaliacaoEntregadorService.getAvaliacao(id);
+		return ResponseEntity.ok(avaliacao.map(AvaliacaoEntregadorDto::new).orElse(new AvaliacaoEntregadorDto()));
 	}
 
 	@DeleteMapping("/{id}")
